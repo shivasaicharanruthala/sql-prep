@@ -15,3 +15,6 @@ from (select customer_number, count(*) as cnt
       from orders
       group by customer_number) as e
 order by e.cnt desc OFFSET 0 ROWS FETCH NEXT 1 ROW ONLY;
+
+-- mysql
+select customer_number from orders group by customer_number order by count(customer_number) desc limit 1;
